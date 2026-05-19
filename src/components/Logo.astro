@@ -2,9 +2,9 @@
 const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
-  small: { fontSize: '1.25rem', gap: '9px', icon: '38px' },
-  medium: { fontSize: '1.5rem', gap: '11px', icon: '46px' },
-  large: { fontSize: '2rem', gap: '14px', icon: '54px' },
+  small: { fontSize: '1.25rem', gap: '10px', icon: '40px', symbol: '1.25rem' },
+  medium: { fontSize: '1.5rem', gap: '12px', icon: '48px', symbol: '1.5rem' },
+  large: { fontSize: '2rem', gap: '14px', icon: '56px', symbol: '2rem' },
 };
 
 const s = sizes[size];
@@ -15,7 +15,7 @@ const cls = light ? 'logo logo-light' : 'logo';
 	href="/"
 	class={cls}
 	aria-label="全球交易导航首页"
-	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};--logo-icon:${s.icon};`}
+	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};--logo-icon:${s.icon};--logo-symbol:${s.symbol};`}
 >
 	<svg
 		class="logo-icon"
@@ -26,12 +26,12 @@ const cls = light ? 'logo logo-light' : 'logo';
 		xmlns="http://www.w3.org/2000/svg"
 		aria-hidden="true"
 	>
-		<rect x="2" y="2" width="44" height="44" rx="8" fill="#DA291C"/>
-		<rect x="20" y="8" width="8" height="32" fill="#FFFFFF" rx="1.5"/>
-		<rect x="8" y="20" width="32" height="8" fill="#FFFFFF" rx="1.5"/>
-		<text x="30.5" y="38" fill="#D4A843" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="900">₣</text>
+		<rect x="3" y="3" width="42" height="42" rx="8" fill="#DA291C"/>
+		<rect x="18" y="8" width="12" height="32" rx="2.5" fill="#FFFFFF"/>
+		<rect x="8" y="18" width="32" height="12" rx="2.5" fill="#FFFFFF"/>
 	</svg>
 	<span class="logo-text">
+		<span class="logo-symbol">₣</span>
 		<span class="logo-name">全球交易导航</span>
 	</span>
 </a>
@@ -49,15 +49,22 @@ const cls = light ? 'logo logo-light' : 'logo';
 		width: var(--logo-icon);
 		height: auto;
 		flex-shrink: 0;
-		filter: drop-shadow(0 1px 3px rgba(218, 41, 28, 0.18));
+		filter: drop-shadow(0 1px 3px rgba(218, 41, 28, 0.15));
 	}
 
 	.logo-text {
 		display: inline-flex;
-		align-items: center;
+		align-items: baseline;
+		gap: 0.12em;
 		font-size: var(--logo-size);
 		font-weight: 700;
-		letter-spacing: 0.01em;
+		letter-spacing: 0.02em;
+	}
+
+	.logo-symbol {
+		color: var(--accent-gold);
+		font-size: var(--logo-symbol);
+		font-weight: 800;
 	}
 
 	.logo-name {
@@ -68,6 +75,10 @@ const cls = light ? 'logo logo-light' : 'logo';
 		color: var(--white);
 	}
 
+	.logo-light .logo-symbol {
+		color: #F0D070;
+	}
+
 	.logo-light .logo-icon rect:first-child {
 		opacity: 0.92;
 	}
@@ -75,6 +86,7 @@ const cls = light ? 'logo logo-light' : 'logo';
 	@media (max-width: 480px) {
 		.logo-text {
 			letter-spacing: 0;
+			gap: 0.08em;
 		}
 	}
 </style>
