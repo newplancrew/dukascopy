@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = '关于 · Dukascopy';
-const description = '关于 Dukascopy：基于官网公开信息整理与改写的介绍页面。';
+const title = '关于本站 — 全球交易导航';
+const description = '全球交易导航是杜高斯贝银行的独立推荐平台，提供产品评测、开户引导与交易指南。';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -12,45 +12,57 @@ const description = '关于 Dukascopy：基于官网公开信息整理与改写�
 
 	<main class="section">
 		<div class="container">
-			<div class="header">
-				<div class="kicker">关于</div>
-				<h1 class="h1">Dukascopy 与本项目说明</h1>
+			<div class="page-header">
+				<div class="kicker">关于本站</div>
+				<h1 class="h1">全球交易导航 — 独立推荐平台</h1>
 				<p class="lead">
-					此页面用于承载“机构/产品背景、监管信息、服务范围与风险提示”等基础内容。文本基于 Dukascopy 中文官网首页的公开信息整理与改写，建议上线前逐条校对并补齐合规条款。
+					我们是一个专注于杜高斯贝银行（Dukascopy Bank SA）评测与介绍的独立推荐平台。我们的目标是帮助你更清晰地了解这家瑞士银行提供的交易与银行服务，以便做出更明智的选择。
 				</p>
 			</div>
 
 			<div class="grid grid-2">
 				<div class="card">
-					<h2 class="h2">定位概览</h2>
+					<h2 class="h2">平台定位</h2>
 					<p class="muted">
-						官网首页强调“瑞士精准可靠交易”与多年服务经验，并提供多资产交易产品（外汇、差价合约、加密货币、贵金属等）以及相关平台与账户入口。
+						全球交易导航是一个独立的推荐与评测平台。我们提供杜高斯贝银行的产品介绍、开户流程引导、交易平台对比以及相关市场资讯。我们与杜高斯贝银行无直接隶属关系。
 					</p>
 					<div class="divider"></div>
 					<ul class="list">
-						<li>多平台：JForex、MetaTrader 4/5 等入口结构</li>
-						<li>交易产品覆盖：外汇、指数、股票、贵金属、加密等</li>
-						<li>开户入口：实时账户与模拟账户</li>
+						<li>产品介绍与交易平台对比</li>
+						<li>完整的开户流程引导</li>
+						<li>交易经验分享与行业资讯</li>
+						<li>开户链接导向杜高斯贝官方网站</li>
 					</ul>
 				</div>
 				<div class="card">
-					<h2 class="h2">银行服务与资金管理</h2>
+					<h2 class="h2">关于杜高斯贝银行</h2>
 					<p class="muted">
-						首页展示了多币种经常账户、IBAN、银行卡与财富管理等入口。你可以在此补充费率、限额、支持地区与开户要求等细节。
+						杜高斯贝银行（Dukascopy Bank SA）是一家受瑞士金融市场监管机构（FINMA）监管的瑞士银行，成立于 2006 年。银行提供外汇、差价合约、加密货币、贵金属等交易产品，同时提供多币种银行账户服务。
 					</p>
 					<div class="divider"></div>
 					<ul class="list">
-						<li>多币种经常账户（示例：24 种货币）</li>
-						<li>实体卡与虚拟卡</li>
-						<li>财富管理与公司账户入口</li>
+						<li>受瑞士 FINMA 监管</li>
+						<li>多资产交易平台：JForex、MT4、MT5</li>
+						<li>多币种银行账户（24 种货币）</li>
+						<li>实体卡与虚拟卡服务</li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="card risk">
-				<h2 class="h2">风险提示</h2>
+				<h2 class="h2">关联声明与风险提示</h2>
 				<p class="muted">
-					外汇与差价合约等衍生品交易具有高风险，可能不适合所有投资者。任何具体参数（如杠杆、点差、费用与产品可用性）应以官网最新披露与适用地区规则为准。
+					<strong>关联声明：</strong>本站为独立推荐平台。通过本站链接前往杜高斯贝官网开户，我们可能获得推荐佣金。这不会影响您支付的费用或获取的服务质量。
+				</p>
+				<p class="muted">
+					<strong>风险提示：</strong>外汇和差价合约等衍生品交易具有高风险，可能不适合所有投资者。在决定交易之前，您应仔细考虑您的投资目标、经验水平和风险承受能力。具体杠杆、点差、费用与产品可用性应以杜高斯贝官网最新披露为准。
+				</p>
+			</div>
+
+			<div class="card disclaimer">
+				<h2 class="h2">免责声明</h2>
+				<p class="muted">
+					本站内容基于杜高斯贝官网公开信息整理与改写，仅供参考，不构成任何投资建议。我们力求信息准确，但不对信息的完整性、及时性或准确性做出保证。交易决策请以杜高斯贝官方网站信息为准。
 				</p>
 			</div>
 		</div>
@@ -60,9 +72,17 @@ const description = '关于 Dukascopy：基于官网公开信息整理与改写�
 </BaseLayout>
 
 <style>
-	.header {
+	.page-header {
 		max-width: 72ch;
-		margin-bottom: 28px;
+		margin-bottom: 40px;
+	}
+
+	.page-header .kicker {
+		margin-bottom: 10px;
+	}
+
+	.page-header .lead {
+		margin-top: 12px;
 	}
 
 	.card p {
@@ -85,5 +105,15 @@ const description = '关于 Dukascopy：基于官网公开信息整理与改写�
 		margin-top: 24px;
 		border-color: rgba(218, 41, 28, 0.18);
 		background: linear-gradient(135deg, rgba(218, 41, 28, 0.06), rgba(218, 41, 28, 0.02));
+	}
+
+	.risk p {
+		margin-top: 12px;
+	}
+
+	.disclaimer {
+		margin-top: 16px;
+		border-color: var(--gray-100);
+		background: var(--gray-50);
 	}
 </style>

@@ -62,12 +62,16 @@ const footerSections = [
     <div class="footer-bottom">
       <div class="footer-brand">
         <Logo size="small" />
+        <span class="footer-tag">独立推荐平台</span>
       </div>
+      <p class="footer-disclaimer">
+        <strong>关联声明：</strong>本站为独立平台，旨在提供杜高斯贝银行（Dukascopy Bank SA）的产品介绍与开户引导。本站与杜高斯贝银行无直接隶属关系。通过本站链接开户，我们可能获得推荐佣金，但不会影响您支付的费用或获取的服务质量。
+      </p>
       <p class="footer-disclaimer">
         杜高斯贝银行 (Dukascopy Bank SA) 是一家受瑞士金融市场监管机构 (FINMA) 监管的瑞士银行。
         外汇和差价合约交易具有高风险，可能不适合所有投资者。在决定交易之前，您应仔细考虑您的投资目标、经验水平和风险承受能力。
       </p>
-      <p class="footer-copy">&copy; {new Date().getFullYear()} Dukascopy Bank SA. All rights reserved.</p>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} 全球交易导航 · All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -122,6 +126,18 @@ const footerSections = [
 
   .footer-brand {
     opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-tag {
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--gray-600);
+    color: var(--gray-400);
+    font-size: 0.75rem;
+    font-weight: 500;
   }
 
   .footer-disclaimer {

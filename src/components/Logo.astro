@@ -13,7 +13,7 @@ const s = sizes[size];
 <a
 	href="/"
 	class="logo"
-	aria-label="杜高斯贝银行首页"
+	aria-label="全球交易导航首页"
 	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};`}
 >
 	<svg
@@ -25,14 +25,13 @@ const s = sizes[size];
 		xmlns="http://www.w3.org/2000/svg"
 		aria-hidden="true"
 	>
-		<rect width="28" height="28" rx="4" fill="#DA291C"></rect>
-		<rect x="4" y="12" width="20" height="4" rx="2" fill="white"></rect>
-		<rect x="12" y="4" width="4" height="20" rx="2" fill="white"></rect>
+		<circle cx="14" cy="14" r="11" stroke="#DA291C" stroke-width="2" fill="none"/>
+		<ellipse cx="14" cy="14" rx="6" ry="11" stroke="#DA291C" stroke-width="1.2" fill="none"/>
+		<line x1="3" y1="14" x2="25" y2="14" stroke="#DA291C" stroke-width="1.2"/>
+		<circle cx="14" cy="14" r="3" fill="#DA291C" opacity="0.15"/>
 	</svg>
 	<span class="logo-text">
-		<span class="logo-name">杜高斯贝</span>
-		<span class="logo-divider">|</span>
-		<span class="logo-suffix">Dukascopy</span>
+		<span class="logo-name">全球交易导航</span>
 	</span>
 </a>
 
@@ -51,24 +50,13 @@ const s = sizes[size];
 
 	.logo-text {
 		display: inline-flex;
-		align-items: baseline;
+		align-items: center;
 		gap: 6px;
 		font-size: var(--logo-size);
 		font-weight: 700;
 	}
 
 	.logo-name {
-		color: var(--gray-900);
-	}
-
-	.logo-divider {
-		color: var(--swiss-red);
-		font-weight: 300;
-	}
-
-	.logo-suffix {
-		color: var(--gray-500);
-		font-weight: 500;
-		font-size: 0.85em;
+		color: var(--navy);
 	}
 </style>
