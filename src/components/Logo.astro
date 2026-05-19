@@ -2,9 +2,9 @@
 const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
-  small: { fontSize: '1.25rem', gap: '8px', icon: '34px' },
-  medium: { fontSize: '1.5rem', gap: '10px', icon: '40px' },
-  large: { fontSize: '2rem', gap: '12px', icon: '48px' },
+  small: { fontSize: '1.25rem', gap: '9px', icon: '38px' },
+  medium: { fontSize: '1.5rem', gap: '11px', icon: '46px' },
+  large: { fontSize: '2rem', gap: '14px', icon: '54px' },
 };
 
 const s = sizes[size];
@@ -26,14 +26,10 @@ const cls = light ? 'logo logo-light' : 'logo';
 		xmlns="http://www.w3.org/2000/svg"
 		aria-hidden="true"
 	>
-		<rect class="badge-bg" x="2.5" y="2.5" width="43" height="43" rx="14" fill="#FFFFFF" stroke="#DA291C" stroke-width="3"/>
-		<g class="flag">
-			<rect x="7.5" y="7.5" width="16" height="16" rx="4" fill="#DA291C"/>
-			<path d="M14.3 10.6H16.7V14.3H20.4V16.7H16.7V20.4H14.3V16.7H10.6V14.3H14.3V10.6Z" fill="#FFFFFF"/>
-		</g>
-		<path d="M9 34.5C13.3 29.9 16.6 31.1 20.3 26.9C23.5 23.3 27.2 25.2 31.3 20.6C34.2 17.4 37 16.8 40 13.5" stroke="#0A2540" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-		<path d="M35.6 13.5H40V17.9" stroke="#0A2540" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-		<text x="27.3" y="36.2" fill="#D4A843" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900">₣</text>
+		<rect x="2" y="2" width="44" height="44" rx="8" fill="#DA291C"/>
+		<rect x="20" y="8" width="8" height="32" fill="#FFFFFF" rx="1.5"/>
+		<rect x="8" y="20" width="32" height="8" fill="#FFFFFF" rx="1.5"/>
+		<text x="30.5" y="38" fill="#D4A843" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="900">₣</text>
 	</svg>
 	<span class="logo-text">
 		<span class="logo-name">全球交易导航</span>
@@ -53,16 +49,15 @@ const cls = light ? 'logo logo-light' : 'logo';
 		width: var(--logo-icon);
 		height: auto;
 		flex-shrink: 0;
-		filter: drop-shadow(0 2px 4px rgba(218, 41, 28, 0.12));
+		filter: drop-shadow(0 1px 3px rgba(218, 41, 28, 0.18));
 	}
 
 	.logo-text {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
 		font-size: var(--logo-size);
-		font-weight: 750;
-		letter-spacing: -0.04em;
+		font-weight: 700;
+		letter-spacing: 0.01em;
 	}
 
 	.logo-name {
@@ -73,14 +68,13 @@ const cls = light ? 'logo logo-light' : 'logo';
 		color: var(--white);
 	}
 
-	.logo-light .badge-bg {
-		fill: rgba(255, 255, 255, 0.96);
-		stroke: rgba(255, 255, 255, 0.72);
+	.logo-light .logo-icon rect:first-child {
+		opacity: 0.92;
 	}
 
 	@media (max-width: 480px) {
 		.logo-text {
-			letter-spacing: -0.05em;
+			letter-spacing: 0;
 		}
 	}
 </style>
