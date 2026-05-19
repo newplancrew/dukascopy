@@ -57,12 +57,14 @@ const navLinks = [
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    gap: 12px;
   }
 
   .header-brand {
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: 0;
   }
 
   .badge {
@@ -75,6 +77,7 @@ const navLinks = [
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 
   .nav {
@@ -117,6 +120,11 @@ const navLinks = [
     gap: 12px;
   }
 
+  .header-actions .btn {
+    width: auto;
+    white-space: nowrap;
+  }
+
   .btn-sm {
     padding: 8px 20px;
     font-size: 0.875rem;
@@ -132,6 +140,27 @@ const navLinks = [
     .btn-sm {
       padding: 6px 14px;
       font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .badge {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-inner {
+      gap: 10px;
+    }
+
+    .header-brand {
+      gap: 8px;
+    }
+
+    .header-brand .logo {
+      --logo-size: 1.125rem;
+      --logo-gap: 8px;
     }
   }
 </style>
