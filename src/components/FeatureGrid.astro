@@ -1,0 +1,63 @@
+---
+type Feature = {
+	title: string;
+	desc: string;
+};
+
+const features: Feature[] = [
+	{
+		title: '结构化行情展示',
+		desc: '面向金融内容的排版：指标、区间、涨跌幅、风险提示，适合扩展到图表与实时数据。',
+	},
+	{
+		title: '极速静态部署',
+		desc: '默认静态输出，构建产物为 dist，Cloudflare Pages 一键发布，缓存与边缘加速开箱即用。',
+	},
+	{
+		title: '合规表达模板',
+		desc: '内置免责声明与风险提示区块结构，后续可按你的业务要求补齐法律条款与披露字段。',
+	},
+	{
+		title: '可扩展组件结构',
+		desc: 'Header/Footer/Section 等组件拆分清晰，新增多页面、博客或数据看板不会破坏现有结构。',
+	},
+	{
+		title: 'SEO 与分享卡片',
+		desc: 'Layout 中提供基础 meta/OG 标签，后续可按域名补齐 site、Twitter card 等。',
+	},
+	{
+		title: '零依赖样式体系',
+		desc: '使用原生 CSS + 变量体系，主题色/圆角/阴影统一管理，便于做品牌定制与暗色风格。',
+	},
+];
+---
+
+<div class="grid cols-3">
+	{features.map((f) => (
+		<div class="card feature">
+			<div class="cap">{f.title}</div>
+			<p class="muted">{f.desc}</p>
+		</div>
+	))}
+</div>
+
+<style>
+	.feature {
+		padding: 18px 18px 16px;
+		border-radius: 18px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
+		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+	}
+
+	.cap {
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+
+	p {
+		margin: 10px 0 0;
+		line-height: 1.75;
+		font-size: 14px;
+	}
+</style>
+

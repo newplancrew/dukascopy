@@ -1,0 +1,55 @@
+---
+const { id = 'demo' } = Astro.props;
+---
+
+<section id={id} class="section sm">
+	<div class="container">
+		<div class="card cta">
+			<div>
+				<div class="pill">金融内容落地页 · Astro</div>
+				<h2 class="h2">把数据呈现与内容营销统一到一个高性能站点</h2>
+				<p class="muted">
+					先用静态落地页打磨信息架构与品牌表达，后续再无缝扩展到行情组件、博客、研究报告与订阅体系。
+				</p>
+			</div>
+			<div class="actions">
+				<a class="btn primary" href="mailto:hello@example.com">预约演示</a>
+				<a class="btn" href="#features">查看能力</a>
+			</div>
+			<div class="fine">
+				风险提示：本页面为模板示例，不构成任何投资建议。上线前请按业务与监管要求补齐披露信息。
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.cta {
+		padding: 22px;
+		border-radius: 24px;
+		background: radial-gradient(900px 300px at 20% 20%, rgba(76, 201, 240, 0.18), transparent 60%),
+			radial-gradient(900px 300px at 75% 0%, rgba(161, 255, 206, 0.14), transparent 60%),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
+	}
+
+	.cta > div {
+		max-width: 74ch;
+	}
+
+	.actions {
+		display: flex;
+		gap: 10px;
+		margin-top: 18px;
+		flex-wrap: wrap;
+	}
+
+	.fine {
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.54);
+		font-size: 12px;
+		line-height: 1.6;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 14px;
+	}
+</style>
+

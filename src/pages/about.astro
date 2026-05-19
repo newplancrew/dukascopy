@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '关于 · Dukascopy';
+const description = '关于本项目：一个面向金融内容的 Astro 落地页模板，适配 Cloudflare Pages。';
+---
+
+<BaseLayout title={title} description={description}>
+	<Header />
+
+	<main class="section">
+		<div class="container">
+			<div class="card panel">
+				<h1 class="h2">关于这个模板</h1>
+				<p class="muted">
+					这是一个用于金融类内容展示的 Astro 落地页模板：强调信息架构、性能与合规表达的可扩展位置。
+				</p>
+				<div class="divider"></div>
+				<div class="grid cols-2">
+					<div class="item">
+						<div class="cap">适合的场景</div>
+						<ul class="list">
+							<li>研究报告/观点发布</li>
+							<li>产品介绍与转化落地页</li>
+							<li>数据看板的静态版本</li>
+						</ul>
+					</div>
+					<div class="item">
+						<div class="cap">下一步可做</div>
+						<ul class="list">
+							<li>接入图表组件与数据源</li>
+							<li>增加博客/内容集合页</li>
+							<li>补齐隐私政策与免责声明页面</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.panel {
+		padding: 18px;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.05);
+		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
+	}
+
+	p {
+		margin: 14px 0 0;
+		line-height: 1.75;
+	}
+
+	.divider {
+		margin: 18px 0;
+	}
+
+	.item {
+		padding: 12px;
+		border-radius: 18px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.cap {
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+
+	.list {
+		margin: 0;
+		padding-left: 18px;
+		color: rgba(255, 255, 255, 0.72);
+		line-height: 1.8;
+	}
+</style>
+

@@ -1,17 +1,200 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import Stats from '../components/Stats.astro';
+import CTA from '../components/CTA.astro';
 
+const title = 'Dukascopy · 金融内容落地页模板';
+const description = '基于 Astro 的金融内容落地页模板：高性能、易扩展，适配 Cloudflare Pages 静态部署。';
 ---
+<BaseLayout title={title} description={description}>
+	<Header />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+	<main>
+		<section class="section hero">
+			<div class="container">
+				<div class="pill">Cloudflare Pages · 静态部署 · 高性能</div>
+				<h1 class="h1">为金融内容与数据展示打造的落地页基础盘</h1>
+				<p class="lead">
+					用清晰的信息架构承载产品定位、研究内容与合规表达。先把落地页做对，再逐步扩展到行情组件、报告与订阅。
+				</p>
+				<div class="actions">
+					<a class="btn primary" href="#demo">获取演示</a>
+					<a class="btn" href="#features">了解能力</a>
+				</div>
+				<div class="meta">
+					<div class="chip">
+						<div class="dot ok"></div>
+						<div>默认静态输出 dist/</div>
+					</div>
+					<div class="chip">
+						<div class="dot warn"></div>
+						<div>模板文本可按合规要求替换</div>
+					</div>
+					<div class="chip">
+						<div class="dot ok"></div>
+						<div>零样式依赖，易品牌化</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section sm">
+			<div class="container">
+				<Stats />
+			</div>
+		</section>
+
+		<section id="features" class="section">
+			<div class="container">
+				<div class="top">
+					<div class="kicker">核心能力</div>
+					<h2 class="h2">一个能长期演进的金融内容站点骨架</h2>
+					<p class="lead">
+						你可以把它当成“落地页起步 + 内容/数据可扩展”的基础工程，后续加图表、数据源、登录、订阅都不会重来。
+					</p>
+				</div>
+				<FeatureGrid />
+			</div>
+		</section>
+
+		<section id="security" class="section">
+			<div class="container">
+				<div class="grid cols-2">
+					<div class="card panel">
+						<h2 class="h2">合规表达与风险提示</h2>
+						<p class="muted">
+							金融类站点最难的不是页面，而是“说什么、怎么说”。模板内置风险提示与免责声明的结构位置，方便你后续补齐披露字段与条款链接。
+						</p>
+						<div class="list">
+							<div class="row">
+								<span class="mark"></span>
+								<span>免责声明区块与引用格式</span>
+							</div>
+							<div class="row">
+								<span class="mark"></span>
+								<span>内容更新节奏与版本提示</span>
+							</div>
+							<div class="row">
+								<span class="mark"></span>
+								<span>可扩展的条款页与隐私页</span>
+							</div>
+						</div>
+					</div>
+					<div class="card panel">
+						<h2 class="h2">性能与可维护性</h2>
+						<p class="muted">
+							Astro 默认输出静态文件，适合金融内容的高并发访问。组件拆分清晰，易维护，Cloudflare 缓存策略也更容易发挥效果。
+						</p>
+						<div class="list">
+							<div class="row">
+								<span class="mark"></span>
+								<span>路由基于文件结构，无额外框架约束</span>
+							</div>
+							<div class="row">
+								<span class="mark"></span>
+								<span>页面与组件松耦合，利于多人协作</span>
+							</div>
+							<div class="row">
+								<span class="mark"></span>
+								<span>构建输出 dist/，一键部署</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<CTA id="demo" />
+	</main>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.hero {
+		padding-top: 64px;
+	}
+
+	.actions {
+		display: flex;
+		gap: 12px;
+		margin-top: 18px;
+		flex-wrap: wrap;
+	}
+
+	.meta {
+		margin-top: 20px;
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 12px;
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.2);
+		color: rgba(255, 255, 255, 0.78);
+		font-size: 13px;
+	}
+
+	.dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+	}
+
+	.dot.ok {
+		background: rgba(161, 255, 206, 0.92);
+	}
+
+	.dot.warn {
+		background: rgba(255, 204, 102, 0.92);
+	}
+
+	.top {
+		margin-bottom: 18px;
+	}
+
+	.panel {
+		padding: 18px;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.05);
+		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
+	}
+
+	.panel p {
+		margin: 14px 0 0;
+		line-height: 1.75;
+	}
+
+	.list {
+		margin-top: 16px;
+		display: grid;
+		gap: 10px;
+	}
+
+	.row {
+		display: flex;
+		gap: 10px;
+		align-items: flex-start;
+		color: rgba(255, 255, 255, 0.76);
+		font-size: 14px;
+		line-height: 1.6;
+	}
+
+	.mark {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 999px;
+		margin-top: 6px;
+		background: linear-gradient(135deg, rgba(76, 201, 240, 0.95), rgba(161, 255, 206, 0.9));
+	}
+</style>

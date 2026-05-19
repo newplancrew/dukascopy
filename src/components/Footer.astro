@@ -1,0 +1,114 @@
+---
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+	<div class="container inner">
+		<div class="left">
+			<Logo size={18} />
+			<p class="muted">
+				面向金融内容与数据展示的 Astro 落地页模板。静态部署友好，支持 Cloudflare Pages。
+			</p>
+		</div>
+		<div class="right">
+			<div class="col">
+				<div class="cap">产品</div>
+				<a class="item" href="#features">能力</a>
+				<a class="item" href="#security">合规</a>
+				<a class="item" href="#demo">演示</a>
+			</div>
+			<div class="col">
+				<div class="cap">资源</div>
+				<a class="item" href="https://docs.astro.build" target="_blank" rel="noreferrer">Astro 文档</a>
+				<a class="item" href="https://developers.cloudflare.com/pages/" target="_blank" rel="noreferrer"
+					>Cloudflare Pages</a
+				>
+			</div>
+		</div>
+	</div>
+	<div class="container bottom">
+		<div class="divider"></div>
+		<div class="row">
+			<div class="muted">© {year} Dukascopy. All rights reserved.</div>
+			<div class="muted">Built with Astro · Deployed on Cloudflare Pages</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		padding: 56px 0 44px;
+	}
+
+	.inner {
+		display: grid;
+		grid-template-columns: 1.4fr 1fr;
+		gap: 24px;
+		align-items: start;
+	}
+
+	.left p {
+		margin: 12px 0 0;
+		max-width: 54ch;
+		line-height: 1.75;
+	}
+
+	.right {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 18px;
+		justify-items: end;
+	}
+
+	.col {
+		width: 100%;
+		max-width: 220px;
+	}
+
+	.cap {
+		color: rgba(255, 255, 255, 0.82);
+		font-weight: 650;
+		font-size: 13px;
+		margin-bottom: 10px;
+	}
+
+	.item {
+		display: block;
+		color: rgba(255, 255, 255, 0.62);
+		font-size: 14px;
+		padding: 8px 0;
+	}
+
+	.item:hover {
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	.bottom {
+		margin-top: 26px;
+	}
+
+	.row {
+		display: flex;
+		justify-content: space-between;
+		gap: 14px;
+		padding-top: 16px;
+		font-size: 13px;
+	}
+
+	@media (max-width: 900px) {
+		.inner {
+			grid-template-columns: 1fr;
+		}
+
+		.right {
+			justify-items: start;
+		}
+
+		.row {
+			flex-direction: column;
+		}
+	}
+</style>
+

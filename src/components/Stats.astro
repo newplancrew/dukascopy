@@ -1,0 +1,62 @@
+---
+type Stat = {
+	value: string;
+	label: string;
+	note?: string;
+};
+
+const stats: Stat[] = [
+	{ value: '99.9%', label: '可用性目标', note: '根据你的 SLO/监控体系可替换' },
+	{ value: '< 200ms', label: '首屏渲染', note: '静态页面 + 边缘缓存' },
+	{ value: '0', label: '数据库依赖', note: '默认不引入后端' },
+	{ value: 'dist/', label: '构建产物', note: '适配 Cloudflare Pages' },
+];
+---
+
+<div class="card panel">
+	<div class="grid cols-2">
+		{stats.map((s) => (
+			<div class="item">
+				<div class="value">{s.value}</div>
+				<div class="label">{s.label}</div>
+				{s.note ? <div class="note">{s.note}</div> : null}
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	.panel {
+		padding: 18px;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.05);
+		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.35);
+	}
+
+	.item {
+		padding: 12px 12px 10px;
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.value {
+		font-size: 26px;
+		font-weight: 760;
+		letter-spacing: -0.03em;
+	}
+
+	.label {
+		margin-top: 6px;
+		color: rgba(255, 255, 255, 0.74);
+		font-size: 13px;
+	}
+
+	.note {
+		margin-top: 6px;
+		color: rgba(255, 255, 255, 0.52);
+		font-size: 12px;
+		line-height: 1.6;
+	}
+</style>
+
