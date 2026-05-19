@@ -2,9 +2,9 @@
 const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
-  small: { gap: '10px', icon: '38px', name: '1.15rem', sub: '0.65rem' },
-  medium: { gap: '12px', icon: '46px', name: '1.4rem', sub: '0.75rem' },
-  large: { gap: '14px', icon: '54px', name: '1.75rem', sub: '0.875rem' },
+  small: { gap: '10px', icon: '38px', name: '1.15rem' },
+  medium: { gap: '12px', icon: '46px', name: '1.4rem' },
+  large: { gap: '14px', icon: '54px', name: '1.75rem' },
 };
 
 const s = sizes[size];
@@ -15,7 +15,7 @@ const cls = light ? 'logo logo-light' : 'logo';
 	href="/"
 	class={cls}
 	aria-label="全球交易导航首页"
-	style={`--logo-gap:${s.gap};--logo-icon:${s.icon};--logo-name:${s.name};--logo-sub:${s.sub};`}
+	style={`--logo-gap:${s.gap};--logo-icon:${s.icon};--logo-name:${s.name};`}
 >
 	<svg
 		class="logo-icon"
@@ -32,7 +32,6 @@ const cls = light ? 'logo logo-light' : 'logo';
 	</svg>
 	<span class="logo-text">
 		<span class="logo-name">全球交易导航</span>
-		<span class="logo-sub">Dukascopy 推荐</span>
 	</span>
 </a>
 
@@ -53,9 +52,7 @@ const cls = light ? 'logo logo-light' : 'logo';
 
 	.logo-text {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		line-height: 1.15;
+		align-items: center;
 	}
 
 	.logo-name {
@@ -65,19 +62,8 @@ const cls = light ? 'logo logo-light' : 'logo';
 		color: var(--navy);
 	}
 
-	.logo-sub {
-		font-size: var(--logo-sub);
-		font-weight: 500;
-		letter-spacing: 0.04em;
-		color: var(--gray-400);
-	}
-
 	.logo-light .logo-name {
 		color: var(--white);
-	}
-
-	.logo-light .logo-sub {
-		color: var(--gray-300);
 	}
 
 	.logo-light .logo-icon rect:first-child {
@@ -90,9 +76,6 @@ const cls = light ? 'logo logo-light' : 'logo';
 		}
 		.logo-name {
 			font-size: 1rem;
-		}
-		.logo-sub {
-			font-size: 0.6rem;
 		}
 	}
 </style>
