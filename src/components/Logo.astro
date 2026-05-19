@@ -2,9 +2,9 @@
 const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
-  small: { fontSize: '1.25rem', gap: '8px' },
-  medium: { fontSize: '1.5rem', gap: '10px' },
-  large: { fontSize: '2rem', gap: '12px' },
+  small: { fontSize: '1.25rem', gap: '8px', icon: '30px' },
+  medium: { fontSize: '1.5rem', gap: '10px', icon: '34px' },
+  large: { fontSize: '2rem', gap: '12px', icon: '42px' },
 };
 
 const s = sizes[size];
@@ -15,21 +15,26 @@ const cls = light ? 'logo logo-light' : 'logo';
 	href="/"
 	class={cls}
 	aria-label="全球交易导航首页"
-	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};`}
+	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};--logo-icon:${s.icon};`}
 >
 	<svg
 		class="logo-icon"
-		width="28"
-		height="28"
-		viewBox="0 0 28 28"
+		width="42"
+		height="34"
+		viewBox="0 0 42 34"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 		aria-hidden="true"
 	>
-		<circle cx="14" cy="14" r="11" stroke="#DA291C" stroke-width="2" fill="none"/>
-		<ellipse cx="14" cy="14" rx="6" ry="11" stroke="#DA291C" stroke-width="1.2" fill="none"/>
-		<line x1="3" y1="14" x2="25" y2="14" stroke="#DA291C" stroke-width="1.2"/>
-		<circle cx="14" cy="14" r="3" fill="#DA291C" opacity="0.15"/>
+		<rect x="1" y="7" width="27" height="20" rx="6" fill="#FFFFFF" stroke="#DA291C" stroke-width="2"/>
+		<path d="M8 20.5C10.2 17.8 12.4 18.7 14.6 16.2C17.1 13.4 20.1 13.9 22.5 11.2" stroke="#0A2540" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M18.7 11.2H22.5V15" stroke="#0A2540" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+		<text x="9" y="24" fill="#DA291C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800">₣</text>
+		<g class="flag">
+			<path d="M26 6.5C29.8 4.7 33.6 7.9 37.4 6.1V22.5C33.6 24.3 29.8 21.1 26 22.9V6.5Z" fill="#DA291C"/>
+			<path d="M30.2 13.2H33.2V10.2H35.2V13.2H38.2V15.2H35.2V18.2H33.2V15.2H30.2V13.2Z" fill="#FFFFFF"/>
+		</g>
+		<path d="M26 6.5V27.5" stroke="#0A2540" stroke-width="1.6" stroke-linecap="round"/>
 	</svg>
 	<span class="logo-text">
 		<span class="logo-name">全球交易导航</span>
@@ -46,7 +51,10 @@ const cls = light ? 'logo logo-light' : 'logo';
 	}
 
 	.logo-icon {
+		width: var(--logo-icon);
+		height: auto;
 		flex-shrink: 0;
+		filter: drop-shadow(0 2px 4px rgba(218, 41, 28, 0.12));
 	}
 
 	.logo-text {
@@ -54,7 +62,8 @@ const cls = light ? 'logo logo-light' : 'logo';
 		align-items: center;
 		gap: 6px;
 		font-size: var(--logo-size);
-		font-weight: 700;
+		font-weight: 750;
+		letter-spacing: -0.04em;
 	}
 
 	.logo-name {
@@ -63,5 +72,15 @@ const cls = light ? 'logo logo-light' : 'logo';
 
 	.logo-light .logo-name {
 		color: var(--white);
+	}
+
+	.logo-light .logo-icon rect:first-child {
+		fill: rgba(255, 255, 255, 0.96);
+	}
+
+	@media (max-width: 480px) {
+		.logo-text {
+			letter-spacing: -0.05em;
+		}
 	}
 </style>
