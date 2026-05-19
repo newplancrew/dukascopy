@@ -2,9 +2,9 @@
 const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
-  small: { fontSize: '1.25rem', gap: '10px', icon: '40px', symbol: '1.25rem' },
-  medium: { fontSize: '1.5rem', gap: '12px', icon: '48px', symbol: '1.5rem' },
-  large: { fontSize: '2rem', gap: '14px', icon: '56px', symbol: '2rem' },
+  small: { gap: '10px', icon: '38px', name: '1.15rem', sub: '0.65rem' },
+  medium: { gap: '12px', icon: '46px', name: '1.4rem', sub: '0.75rem' },
+  large: { gap: '14px', icon: '54px', name: '1.75rem', sub: '0.875rem' },
 };
 
 const s = sizes[size];
@@ -15,7 +15,7 @@ const cls = light ? 'logo logo-light' : 'logo';
 	href="/"
 	class={cls}
 	aria-label="全球交易导航首页"
-	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};--logo-icon:${s.icon};--logo-symbol:${s.symbol};`}
+	style={`--logo-gap:${s.gap};--logo-icon:${s.icon};--logo-name:${s.name};--logo-sub:${s.sub};`}
 >
 	<svg
 		class="logo-icon"
@@ -26,13 +26,13 @@ const cls = light ? 'logo logo-light' : 'logo';
 		xmlns="http://www.w3.org/2000/svg"
 		aria-hidden="true"
 	>
-		<rect x="3" y="3" width="42" height="42" rx="8" fill="#DA291C"/>
-		<rect x="18" y="8" width="12" height="32" rx="2.5" fill="#FFFFFF"/>
-		<rect x="8" y="18" width="32" height="12" rx="2.5" fill="#FFFFFF"/>
+		<rect width="48" height="48" rx="4" fill="#DA291C"/>
+		<rect x="19" y="5" width="10" height="38" rx="1.5" fill="#FFFFFF"/>
+		<rect x="5" y="19" width="38" height="10" rx="1.5" fill="#FFFFFF"/>
 	</svg>
 	<span class="logo-text">
-		<span class="logo-symbol">₣</span>
 		<span class="logo-name">全球交易导航</span>
+		<span class="logo-sub">Dukascopy 推荐</span>
 	</span>
 </a>
 
@@ -49,44 +49,50 @@ const cls = light ? 'logo logo-light' : 'logo';
 		width: var(--logo-icon);
 		height: auto;
 		flex-shrink: 0;
-		filter: drop-shadow(0 1px 3px rgba(218, 41, 28, 0.15));
 	}
 
 	.logo-text {
-		display: inline-flex;
-		align-items: baseline;
-		gap: 0.12em;
-		font-size: var(--logo-size);
-		font-weight: 700;
-		letter-spacing: 0.02em;
-	}
-
-	.logo-symbol {
-		color: var(--accent-gold);
-		font-size: var(--logo-symbol);
-		font-weight: 800;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		line-height: 1.15;
 	}
 
 	.logo-name {
+		font-size: var(--logo-name);
+		font-weight: 700;
+		letter-spacing: 0.02em;
 		color: var(--navy);
+	}
+
+	.logo-sub {
+		font-size: var(--logo-sub);
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		color: var(--gray-400);
 	}
 
 	.logo-light .logo-name {
 		color: var(--white);
 	}
 
-	.logo-light .logo-symbol {
-		color: #F0D070;
+	.logo-light .logo-sub {
+		color: var(--gray-300);
 	}
 
 	.logo-light .logo-icon rect:first-child {
-		opacity: 0.92;
+		fill: var(--swiss-red);
 	}
 
 	@media (max-width: 480px) {
-		.logo-text {
-			letter-spacing: 0;
-			gap: 0.08em;
+		.logo-icon {
+			width: 34px;
+		}
+		.logo-name {
+			font-size: 1rem;
+		}
+		.logo-sub {
+			font-size: 0.6rem;
 		}
 	}
 </style>
