@@ -61,7 +61,7 @@ const footerSections = [
     </div>
     <div class="footer-bottom">
       <div class="footer-brand">
-        <Logo size="small" />
+        <Logo size="small" light />
         <span class="footer-tag">独立推荐平台</span>
       </div>
       <p class="footer-disclaimer">
@@ -153,15 +153,22 @@ const footerSections = [
   }
 
   @media (max-width: 768px) {
+    .footer {
+      padding: 48px 0 32px;
+    }
     .footer-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      gap: 24px;
+      margin-bottom: 40px;
     }
   }
 
   @media (max-width: 480px) {
     .footer-grid {
       grid-template-columns: 1fr;
+    }
+    .footer-title {
+      margin-bottom: 14px;
     }
   }
 </style>

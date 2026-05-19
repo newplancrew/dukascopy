@@ -62,4 +62,13 @@ const { id = 'cta' } = Astro.props;
 		border-top: 1px solid var(--gray-100);
 		padding-top: 14px;
 	}
+
+	@media (max-width: 640px) {
+		.cta {
+			padding: 20px;
+		}
+		.cta-actions {
+			flex-direction: column;
+		}
+	}
 </style>

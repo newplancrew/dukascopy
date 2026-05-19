@@ -1,5 +1,5 @@
 ---
-const { size = 'medium' } = Astro.props;
+const { size = 'medium', light = false } = Astro.props;
 
 const sizes = {
   small: { fontSize: '1.25rem', gap: '8px' },
@@ -8,11 +8,12 @@ const sizes = {
 };
 
 const s = sizes[size];
+const cls = light ? 'logo logo-light' : 'logo';
 ---
 
 <a
 	href="/"
-	class="logo"
+	class={cls}
 	aria-label="全球交易导航首页"
 	style={`--logo-gap:${s.gap};--logo-size:${s.fontSize};`}
 >
@@ -58,5 +59,9 @@ const s = sizes[size];
 
 	.logo-name {
 		color: var(--navy);
+	}
+
+	.logo-light .logo-name {
+		color: var(--white);
 	}
 </style>
