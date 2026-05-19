@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const title = '关于 · Dukascopy';
-const description = '关于本项目：一个面向金融内容的 Astro 落地页模板，适配 Cloudflare Pages。';
+const description = '关于 Dukascopy：基于官网公开信息整理与改写的介绍页面。';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -12,30 +12,46 @@ const description = '关于本项目：一个面向金融内容的 Astro 落地�
 
 	<main class="section">
 		<div class="container">
-			<div class="card panel">
-				<h1 class="h2">关于这个模板</h1>
-				<p class="muted">
-					这是一个用于金融类内容展示的 Astro 落地页模板：强调信息架构、性能与合规表达的可扩展位置。
+			<div class="header">
+				<div class="kicker">关于</div>
+				<h1 class="h1">Dukascopy 与本项目说明</h1>
+				<p class="lead">
+					此页面用于承载“机构/产品背景、监管信息、服务范围与风险提示”等基础内容。文本基于 Dukascopy 中文官网首页的公开信息整理与改写，建议上线前逐条校对并补齐合规条款。
 				</p>
-				<div class="divider"></div>
-				<div class="grid cols-2">
-					<div class="item">
-						<div class="cap">适合的场景</div>
-						<ul class="list">
-							<li>研究报告/观点发布</li>
-							<li>产品介绍与转化落地页</li>
-							<li>数据看板的静态版本</li>
-						</ul>
-					</div>
-					<div class="item">
-						<div class="cap">下一步可做</div>
-						<ul class="list">
-							<li>接入图表组件与数据源</li>
-							<li>增加博客/内容集合页</li>
-							<li>补齐隐私政策与免责声明页面</li>
-						</ul>
-					</div>
+			</div>
+
+			<div class="grid grid-2">
+				<div class="card">
+					<h2 class="h2">定位概览</h2>
+					<p class="muted">
+						官网首页强调“瑞士精准可靠交易”与多年服务经验，并提供多资产交易产品（外汇、差价合约、加密货币、贵金属等）以及相关平台与账户入口。
+					</p>
+					<div class="divider"></div>
+					<ul class="list">
+						<li>多平台：JForex、MetaTrader 4/5 等入口结构</li>
+						<li>交易产品覆盖：外汇、指数、股票、贵金属、加密等</li>
+						<li>开户入口：实时账户与模拟账户</li>
+					</ul>
 				</div>
+				<div class="card">
+					<h2 class="h2">银行服务与资金管理</h2>
+					<p class="muted">
+						首页展示了多币种经常账户、IBAN、银行卡与财富管理等入口。你可以在此补充费率、限额、支持地区与开户要求等细节。
+					</p>
+					<div class="divider"></div>
+					<ul class="list">
+						<li>多币种经常账户（示例：24 种货币）</li>
+						<li>实体卡与虚拟卡</li>
+						<li>财富管理与公司账户入口</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="card risk">
+				<h2 class="h2">风险提示</h2>
+				<p class="muted">
+					外汇与差价合约等衍生品交易具有高风险，可能不适合所有投资者。任何具体参数（如杠杆、点差、费用与产品可用性）应以官网最新披露与适用地区规则为准。
+				</p>
 			</div>
 		</div>
 	</main>
@@ -44,39 +60,30 @@ const description = '关于本项目：一个面向金融内容的 Astro 落地�
 </BaseLayout>
 
 <style>
-	.panel {
-		padding: 18px;
-		border-radius: 22px;
-		background: rgba(255, 255, 255, 0.05);
-		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
+	.header {
+		max-width: 72ch;
+		margin-bottom: 28px;
 	}
 
-	p {
-		margin: 14px 0 0;
-		line-height: 1.75;
+	.card p {
+		margin-top: 12px;
+		line-height: 1.8;
 	}
 
 	.divider {
 		margin: 18px 0;
 	}
 
-	.item {
-		padding: 12px;
-		border-radius: 18px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(0, 0, 0, 0.18);
-	}
-
-	.cap {
-		font-weight: 700;
-		margin-bottom: 10px;
-	}
-
 	.list {
 		margin: 0;
 		padding-left: 18px;
-		color: rgba(255, 255, 255, 0.72);
-		line-height: 1.8;
+		color: var(--gray-600);
+		line-height: 1.9;
+	}
+
+	.risk {
+		margin-top: 24px;
+		border-color: rgba(218, 41, 28, 0.18);
+		background: linear-gradient(135deg, rgba(218, 41, 28, 0.06), rgba(218, 41, 28, 0.02));
 	}
 </style>
-

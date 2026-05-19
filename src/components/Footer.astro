@@ -1,114 +1,151 @@
 ---
 import Logo from './Logo.astro';
 
-const year = new Date().getFullYear();
+const footerSections = [
+  {
+    title: "交易产品",
+    links: [
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/trading/", label: "外汇交易" },
+      { href: "https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/", label: "差价合约" },
+      { href: "https://www.dukascopy.com/swiss/chinese/crypto/range-of-markets/", label: "加密货币" },
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/trading/#metals", label: "贵金属" },
+      { href: "https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/", label: "指数 & 股票" },
+    ],
+  },
+  {
+    title: "交易平台",
+    links: [
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/dealstation/", label: "JForex (DealStation)" },
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/mt4-accounts/", label: "MetaTrader 4" },
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/mt5-accounts/", label: "MetaTrader 5" },
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/jforex/", label: "自动交易" },
+      { href: "https://www.dukascopy.com/swiss/chinese/forex/demo-fx-account/", label: "模拟账户" },
+    ],
+  },
+  {
+    title: "银行服务",
+    links: [
+      { href: "https://www.dukascopy.bank/swiss/open-mca-account/?lang=zh", label: "多币种账户" },
+      { href: "https://www.dukascopy.bank/swiss/fees-limits/?lang=zh#dukascopy-card", label: "实体卡和虚拟卡" },
+      { href: "https://www.dukascopy.bank/swiss/private-client/?lang=zh", label: "财富管理" },
+      { href: "https://www.dukascopy.bank/swiss/business/?lang=zh", label: "公司账户" },
+    ],
+  },
+  {
+    title: "关于",
+    links: [
+      { href: "/about", label: "关于杜高斯贝" },
+      { href: "https://www.dukascopy.com/swiss/chinese/about/contact/", label: "联系我们" },
+      { href: "https://www.dukascopy.com/swiss/chinese/about/ournews/", label: "新闻" },
+      { href: "https://www.dukascopy.com/swiss/english/about/financial-reports", label: "财务报告" },
+    ],
+  },
+];
 ---
 
 <footer class="footer">
-	<div class="container inner">
-		<div class="left">
-			<Logo size={18} />
-			<p class="muted">
-				面向金融内容与数据展示的 Astro 落地页模板。静态部署友好，支持 Cloudflare Pages。
-			</p>
-		</div>
-		<div class="right">
-			<div class="col">
-				<div class="cap">产品</div>
-				<a class="item" href="#features">能力</a>
-				<a class="item" href="#security">合规</a>
-				<a class="item" href="#demo">演示</a>
-			</div>
-			<div class="col">
-				<div class="cap">资源</div>
-				<a class="item" href="https://docs.astro.build" target="_blank" rel="noreferrer">Astro 文档</a>
-				<a class="item" href="https://developers.cloudflare.com/pages/" target="_blank" rel="noreferrer"
-					>Cloudflare Pages</a
-				>
-			</div>
-		</div>
-	</div>
-	<div class="container bottom">
-		<div class="divider"></div>
-		<div class="row">
-			<div class="muted">© {year} Dukascopy. All rights reserved.</div>
-			<div class="muted">Built with Astro · Deployed on Cloudflare Pages</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="footer-grid">
+      {footerSections.map((section) => (
+        <div class="footer-col">
+          <h4 class="footer-title">{section.title}</h4>
+          <ul class="footer-links">
+            {section.links.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link" target="_blank" rel="noreferrer">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-brand">
+        <Logo size="small" />
+      </div>
+      <p class="footer-disclaimer">
+        杜高斯贝银行 (Dukascopy Bank SA) 是一家受瑞士金融市场监管机构 (FINMA) 监管的瑞士银行。
+        外汇和差价合约交易具有高风险，可能不适合所有投资者。在决定交易之前，您应仔细考虑您的投资目标、经验水平和风险承受能力。
+      </p>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Dukascopy Bank SA. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
 <style>
-	.footer {
-		padding: 56px 0 44px;
-	}
+  .footer {
+    background: var(--gray-900);
+    color: var(--gray-300);
+    padding: 80px 0 40px;
+  }
 
-	.inner {
-		display: grid;
-		grid-template-columns: 1.4fr 1fr;
-		gap: 24px;
-		align-items: start;
-	}
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-bottom: 64px;
+  }
 
-	.left p {
-		margin: 12px 0 0;
-		max-width: 54ch;
-		line-height: 1.75;
-	}
+  .footer-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 
-	.right {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 18px;
-		justify-items: end;
-	}
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-	.col {
-		width: 100%;
-		max-width: 220px;
-	}
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    transition: color 0.2s ease;
+  }
 
-	.cap {
-		color: rgba(255, 255, 255, 0.82);
-		font-weight: 650;
-		font-size: 13px;
-		margin-bottom: 10px;
-	}
+  .footer-link:hover {
+    color: var(--swiss-red-light);
+  }
 
-	.item {
-		display: block;
-		color: rgba(255, 255, 255, 0.62);
-		font-size: 14px;
-		padding: 8px 0;
-	}
+  .footer-bottom {
+    border-top: 1px solid var(--gray-700);
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-	.item:hover {
-		color: rgba(255, 255, 255, 0.92);
-	}
+  .footer-brand {
+    opacity: 0.8;
+  }
 
-	.bottom {
-		margin-top: 26px;
-	}
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+    max-width: 800px;
+  }
 
-	.row {
-		display: flex;
-		justify-content: space-between;
-		gap: 14px;
-		padding-top: 16px;
-		font-size: 13px;
-	}
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+  }
 
-	@media (max-width: 900px) {
-		.inner {
-			grid-template-columns: 1fr;
-		}
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
 
-		.right {
-			justify-items: start;
-		}
-
-		.row {
-			flex-direction: column;
-		}
-	}
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
-

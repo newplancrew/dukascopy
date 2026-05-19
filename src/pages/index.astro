@@ -6,102 +6,169 @@ import FeatureGrid from '../components/FeatureGrid.astro';
 import Stats from '../components/Stats.astro';
 import CTA from '../components/CTA.astro';
 
-const title = 'Dukascopy · 金融内容落地页模板';
-const description = '基于 Astro 的金融内容落地页模板：高性能、易扩展，适配 Cloudflare Pages 静态部署。';
+const title = 'Dukascopy · 瑞士精准可靠交易';
+const description = '参考瑞士红白配色风格，基于 Dukascopy 中文官网公开介绍整理与改写的落地页模板。';
 ---
 <BaseLayout title={title} description={description}>
 	<Header />
 
 	<main>
-		<section class="section hero">
+		<section class="hero">
 			<div class="container">
-				<div class="pill">Cloudflare Pages · 静态部署 · 高性能</div>
-				<h1 class="h1">为金融内容与数据展示打造的落地页基础盘</h1>
-				<p class="lead">
-					用清晰的信息架构承载产品定位、研究内容与合规表达。先把落地页做对，再逐步扩展到行情组件、报告与订阅。
-				</p>
-				<div class="actions">
-					<a class="btn primary" href="#demo">获取演示</a>
-					<a class="btn" href="#features">了解能力</a>
-				</div>
-				<div class="meta">
-					<div class="chip">
-						<div class="dot ok"></div>
-						<div>默认静态输出 dist/</div>
+				<div class="hero-grid">
+					<div>
+						<div class="pill">20 年 · 瑞士品质 · 多资产交易</div>
+						<h1 class="h1">瑞士精准可靠交易，连接全球市场</h1>
+						<p class="lead">
+							提供外汇、股票、加密货币、指数、黄金等交易产品，并结合多币种银行服务，帮助你以更清晰的方式管理与执行交易计划。
+						</p>
+						<div class="hero-actions">
+							<a
+								class="btn btn-primary"
+								href="https://live-login.dukascopy.com/rto3/#!/?lang=zh"
+								target="_blank"
+								rel="noreferrer"
+								>开设实时账户</a
+							>
+							<a
+								class="btn btn-outline"
+								href="https://www.dukascopy.com/swiss/chinese/forex/demo-fx-account/?headerBar=main-slider"
+								target="_blank"
+								rel="noreferrer"
+								>尝试模拟账户</a
+							>
+						</div>
+						<div class="hero-notes">
+							<div class="note">
+								<span class="dot"></span>
+								<span>杠杆最高可达 1:200，点差 0.1 点起（以产品与市场为准）</span>
+							</div>
+							<div class="note">
+								<span class="dot"></span>
+								<span>多币种经常账户：支持 24 种货币与 IBAN</span>
+							</div>
+							<div class="note">
+								<span class="dot"></span>
+								<span>本页面内容来自官网公开信息的整理与改写</span>
+							</div>
+						</div>
 					</div>
-					<div class="chip">
-						<div class="dot warn"></div>
-						<div>模板文本可按合规要求替换</div>
-					</div>
-					<div class="chip">
-						<div class="dot ok"></div>
-						<div>零样式依赖，易品牌化</div>
+					<div class="hero-card">
+						<div class="hero-card-top">
+							<div class="kicker">今日概览（示例）</div>
+							<div class="hero-card-title">热门市场与点差展示位置</div>
+							<div class="hero-card-sub">上线后可接入行情接口或自定义数据源</div>
+						</div>
+						<div class="hero-card-grid">
+							<div class="tile">
+								<div class="tile-k">EUR/USD</div>
+								<div class="tile-v">0.1</div>
+								<div class="tile-s">点差起始</div>
+							</div>
+							<div class="tile">
+								<div class="tile-k">USD/JPY</div>
+								<div class="tile-v">0.5</div>
+								<div class="tile-s">点差示例</div>
+							</div>
+							<div class="tile">
+								<div class="tile-k">XAU/USD</div>
+								<div class="tile-v">黄金</div>
+								<div class="tile-s">贵金属</div>
+							</div>
+							<div class="tile">
+								<div class="tile-k">Crypto</div>
+								<div class="tile-v">24/7</div>
+								<div class="tile-s">加密交易</div>
+							</div>
+						</div>
+						<div class="hero-card-foot">
+							<a class="small-link" href="#trading">查看全部产品 →</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="section sm">
+		<section class="section sm surface">
 			<div class="container">
 				<Stats />
 			</div>
 		</section>
 
-		<section id="features" class="section">
+		<FeatureGrid />
+
+		<section id="platform" class="section surface">
 			<div class="container">
-				<div class="top">
-					<div class="kicker">核心能力</div>
-					<h2 class="h2">一个能长期演进的金融内容站点骨架</h2>
-					<p class="lead">
-						你可以把它当成“落地页起步 + 内容/数据可扩展”的基础工程，后续加图表、数据源、登录、订阅都不会重来。
-					</p>
+				<h2 class="section-title">交易平台与执行</h2>
+				<p class="section-subtitle">
+					面向不同交易偏好提供多平台入口。这里提供一个结构位置，你可以把“平台亮点、费用说明、执行规则”做成可维护的模块化内容。
+				</p>
+				<div class="grid grid-3">
+					<div class="card platform-card">
+						<div class="platform-top">
+							<div class="platform-k">JForex</div>
+							<div class="platform-t">专业交易与自动化</div>
+						</div>
+						<p class="muted">
+							面向策略交易与高级订单类型的工作流。适合需要更强分析、回测与自动化能力的用户。
+						</p>
+					</div>
+					<div class="card platform-card">
+						<div class="platform-top">
+							<div class="platform-k">MetaTrader 4</div>
+							<div class="platform-t">经典交易生态</div>
+						</div>
+						<p class="muted">
+							适合习惯 MT4 生态的用户。可按产品线补充支持的品种范围、杠杆规则与成本结构。
+						</p>
+					</div>
+					<div class="card platform-card">
+						<div class="platform-top">
+							<div class="platform-k">MetaTrader 5</div>
+							<div class="platform-t">扩展的产品覆盖</div>
+						</div>
+						<p class="muted">
+							可承载更丰富的交易品种展示（例如更多交易工具）。后续可在此加入下载入口与对比表。
+						</p>
+					</div>
 				</div>
-				<FeatureGrid />
 			</div>
 		</section>
 
-		<section id="security" class="section">
+		<section id="accounts" class="section">
 			<div class="container">
-				<div class="grid cols-2">
-					<div class="card panel">
-						<h2 class="h2">合规表达与风险提示</h2>
+				<h2 class="section-title">人人享有的瑞士银行</h2>
+				<p class="section-subtitle">
+					通过多币种经常账户与银行卡产品，将“交易与资金管理”统一到一个更清晰的体系中。页面内容为整理与改写，具体以官网为准。
+				</p>
+				<div class="grid grid-2">
+					<div class="card account-card">
+						<div class="account-kicker">多币种经常账户</div>
+						<h3 class="account-title">24 种货币 · IBAN · 远程开户</h3>
 						<p class="muted">
-							金融类站点最难的不是页面，而是“说什么、怎么说”。模板内置风险提示与免责声明的结构位置，方便你后续补齐披露字段与条款链接。
+							适合跨币种资产管理与全球资金收付的场景。你可以在这里补充费率、限额与开户流程说明。
 						</p>
-						<div class="list">
-							<div class="row">
-								<span class="mark"></span>
-								<span>免责声明区块与引用格式</span>
-							</div>
-							<div class="row">
-								<span class="mark"></span>
-								<span>内容更新节奏与版本提示</span>
-							</div>
-							<div class="row">
-								<span class="mark"></span>
-								<span>可扩展的条款页与隐私页</span>
-							</div>
-						</div>
+						<a
+							class="btn btn-outline"
+							href="https://www.dukascopy.bank/swiss/open-mca-account/?lang=zh"
+							target="_blank"
+							rel="noreferrer"
+							>了解账户</a
+						>
 					</div>
-					<div class="card panel">
-						<h2 class="h2">性能与可维护性</h2>
+					<div class="card account-card">
+						<div class="account-kicker">实体卡与虚拟卡</div>
+						<h3 class="account-title">支付与充值入口</h3>
 						<p class="muted">
-							Astro 默认输出静态文件，适合金融内容的高并发访问。组件拆分清晰，易维护，Cloudflare 缓存策略也更容易发挥效果。
+							将账户与卡产品作为“交易资金周转”的入口。可在这里加入卡片展示、申请流程与费用明细。
 						</p>
-						<div class="list">
-							<div class="row">
-								<span class="mark"></span>
-								<span>路由基于文件结构，无额外框架约束</span>
-							</div>
-							<div class="row">
-								<span class="mark"></span>
-								<span>页面与组件松耦合，利于多人协作</span>
-							</div>
-							<div class="row">
-								<span class="mark"></span>
-								<span>构建输出 dist/，一键部署</span>
-							</div>
-						</div>
+						<a
+							class="btn btn-outline"
+							href="https://www.dukascopy.bank/swiss/fees-limits/?lang=zh#dukascopy-card"
+							target="_blank"
+							rel="noreferrer"
+							>查看卡片</a
+						>
 					</div>
 				</div>
 			</div>
@@ -115,86 +182,169 @@ const description = '基于 Astro 的金融内容落地页模板：高性能、�
 
 <style>
 	.hero {
-		padding-top: 64px;
+		padding: 92px 0 68px;
+		background: radial-gradient(900px 500px at 10% 10%, rgba(218, 41, 28, 0.16), transparent 55%),
+			linear-gradient(180deg, var(--white), var(--gray-50));
+		border-bottom: 1px solid var(--gray-100);
 	}
 
-	.actions {
+	.hero-grid {
+		display: grid;
+		grid-template-columns: 1.15fr 0.85fr;
+		gap: 36px;
+		align-items: start;
+	}
+
+	.hero-actions {
 		display: flex;
 		gap: 12px;
+		margin-top: 22px;
+		flex-wrap: wrap;
+	}
+
+	.hero-notes {
 		margin-top: 18px;
-		flex-wrap: wrap;
-	}
-
-	.meta {
-		margin-top: 20px;
-		display: flex;
-		gap: 10px;
-		flex-wrap: wrap;
-	}
-
-	.chip {
-		display: inline-flex;
-		align-items: center;
-		gap: 10px;
-		padding: 10px 12px;
-		border-radius: 16px;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		background: rgba(0, 0, 0, 0.2);
-		color: rgba(255, 255, 255, 0.78);
-		font-size: 13px;
-	}
-
-	.dot {
-		width: 8px;
-		height: 8px;
-		border-radius: 999px;
-	}
-
-	.dot.ok {
-		background: rgba(161, 255, 206, 0.92);
-	}
-
-	.dot.warn {
-		background: rgba(255, 204, 102, 0.92);
-	}
-
-	.top {
-		margin-bottom: 18px;
-	}
-
-	.panel {
-		padding: 18px;
-		border-radius: 22px;
-		background: rgba(255, 255, 255, 0.05);
-		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
-	}
-
-	.panel p {
-		margin: 14px 0 0;
-		line-height: 1.75;
-	}
-
-	.list {
-		margin-top: 16px;
 		display: grid;
 		gap: 10px;
 	}
 
-	.row {
+	.note {
 		display: flex;
 		gap: 10px;
 		align-items: flex-start;
-		color: rgba(255, 255, 255, 0.76);
-		font-size: 14px;
+		color: var(--gray-600);
+		font-size: 0.9375rem;
 		line-height: 1.6;
 	}
 
-	.mark {
-		display: inline-block;
+	.note .dot {
 		width: 10px;
 		height: 10px;
 		border-radius: 999px;
 		margin-top: 6px;
-		background: linear-gradient(135deg, rgba(76, 201, 240, 0.95), rgba(161, 255, 206, 0.9));
+		background: var(--swiss-red);
+	}
+
+	.hero-card {
+		border-radius: var(--radius-xl);
+		border: 1px solid var(--gray-100);
+		background: var(--white);
+		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.06);
+		overflow: hidden;
+	}
+
+	.hero-card-top {
+		padding: 18px 18px 14px;
+		border-bottom: 1px solid var(--gray-100);
+	}
+
+	.hero-card-title {
+		margin-top: 8px;
+		font-weight: 750;
+		letter-spacing: -0.02em;
+	}
+
+	.hero-card-sub {
+		margin-top: 8px;
+		color: var(--gray-500);
+		font-size: 0.875rem;
+		line-height: 1.6;
+	}
+
+	.hero-card-grid {
+		padding: 18px;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.tile {
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--gray-100);
+		background: var(--gray-50);
+		padding: 12px;
+	}
+
+	.tile-k {
+		font-size: 0.8125rem;
+		color: var(--gray-500);
+	}
+
+	.tile-v {
+		margin-top: 6px;
+		font-size: 1.25rem;
+		font-weight: 760;
+		color: var(--gray-900);
+		letter-spacing: -0.02em;
+	}
+
+	.tile-s {
+		margin-top: 2px;
+		font-size: 0.8125rem;
+		color: var(--gray-500);
+	}
+
+	.hero-card-foot {
+		padding: 14px 18px 18px;
+		border-top: 1px solid var(--gray-100);
+	}
+
+	.small-link {
+		color: var(--swiss-red);
+		font-weight: 650;
+		font-size: 0.9375rem;
+	}
+
+	.small-link:hover {
+		text-decoration: underline;
+	}
+
+	.platform-card p {
+		margin-top: 12px;
+		line-height: 1.75;
+	}
+
+	.platform-top {
+		display: grid;
+		gap: 6px;
+	}
+
+	.platform-k {
+		color: var(--swiss-red);
+		font-weight: 750;
+		letter-spacing: -0.01em;
+	}
+
+	.platform-t {
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.account-card .btn {
+		margin-top: 16px;
+	}
+
+	.account-kicker {
+		color: var(--swiss-red);
+		font-weight: 650;
+		font-size: 0.875rem;
+		margin-bottom: 10px;
+	}
+
+	.account-title {
+		font-size: 1.25rem;
+		letter-spacing: -0.02em;
+	}
+
+	.account-card p {
+		margin-top: 10px;
+		line-height: 1.75;
+	}
+
+	@media (max-width: 980px) {
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

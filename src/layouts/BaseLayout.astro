@@ -1,12 +1,10 @@
 ---
 import '../styles/global.css';
 
-type Props = {
-	title: string;
-	description?: string;
-};
-
-const { title, description } = Astro.props;
+const {
+	title,
+	description = '杜高斯贝银行 — 瑞士精准可靠交易，提供外汇、股票、加密货币、指数、黄金等交易服务',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,15 +15,14 @@ const { title, description } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#DA291C" />
 		<title>{title}</title>
-		{description ? <meta name="description" content={description} /> : null}
 		<meta property="og:title" content={title} />
-		{description ? <meta property="og:description" content={description} /> : null}
+		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta name="color-scheme" content="dark" />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-

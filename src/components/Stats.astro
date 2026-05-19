@@ -1,20 +1,14 @@
 ---
-type Stat = {
-	value: string;
-	label: string;
-	note?: string;
-};
-
-const stats: Stat[] = [
-	{ value: '99.9%', label: '可用性目标', note: '根据你的 SLO/监控体系可替换' },
-	{ value: '< 200ms', label: '首屏渲染', note: '静态页面 + 边缘缓存' },
-	{ value: '0', label: '数据库依赖', note: '默认不引入后端' },
-	{ value: 'dist/', label: '构建产物', note: '适配 Cloudflare Pages' },
+const stats = [
+	{ value: '20 年', label: '瑞士精准可靠交易', note: '基于官网首页公开介绍' },
+	{ value: '1:200', label: '最高杠杆', note: '不同产品与监管地区可能不同' },
+	{ value: '0.1 点起', label: '点差起始', note: '实际点差随市场变化' },
+	{ value: '24', label: '多币种账户', note: '支持 IBAN 经常账户' },
 ];
 ---
 
 <div class="card panel">
-	<div class="grid cols-2">
+	<div class="grid grid-4">
 		{stats.map((s) => (
 			<div class="item">
 				<div class="value">{s.value}</div>
@@ -27,36 +21,37 @@ const stats: Stat[] = [
 
 <style>
 	.panel {
-		padding: 18px;
-		border-radius: 22px;
-		background: rgba(255, 255, 255, 0.05);
-		box-shadow: 0 18px 70px rgba(0, 0, 0, 0.35);
+		padding: 20px;
+		border-radius: var(--radius-xl);
+		border: 1px solid var(--gray-100);
+		background: linear-gradient(180deg, var(--white), var(--gray-50));
 	}
 
 	.item {
-		padding: 12px 12px 10px;
-		border-radius: 16px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(0, 0, 0, 0.18);
+		padding: 14px 14px 12px;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--gray-100);
+		background: var(--white);
 	}
 
 	.value {
-		font-size: 26px;
-		font-weight: 760;
-		letter-spacing: -0.03em;
+		font-size: 1.75rem;
+		font-weight: 750;
+		letter-spacing: -0.02em;
+		color: var(--swiss-red);
 	}
 
 	.label {
 		margin-top: 6px;
-		color: rgba(255, 255, 255, 0.74);
-		font-size: 13px;
+		color: var(--gray-900);
+		font-size: 0.9375rem;
+		font-weight: 650;
 	}
 
 	.note {
 		margin-top: 6px;
-		color: rgba(255, 255, 255, 0.52);
-		font-size: 12px;
-		line-height: 1.6;
+		color: var(--gray-500);
+		font-size: 0.8125rem;
+		line-height: 1.55;
 	}
 </style>
-

@@ -1,63 +1,107 @@
 ---
-type Feature = {
-	title: string;
-	desc: string;
-};
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
 
-const features: Feature[] = [
-	{
-		title: '结构化行情展示',
-		desc: '面向金融内容的排版：指标、区间、涨跌幅、风险提示，适合扩展到图表与实时数据。',
-	},
-	{
-		title: '极速静态部署',
-		desc: '默认静态输出，构建产物为 dist，Cloudflare Pages 一键发布，缓存与边缘加速开箱即用。',
-	},
-	{
-		title: '合规表达模板',
-		desc: '内置免责声明与风险提示区块结构，后续可按你的业务要求补齐法律条款与披露字段。',
-	},
-	{
-		title: '可扩展组件结构',
-		desc: 'Header/Footer/Section 等组件拆分清晰，新增多页面、博客或数据看板不会破坏现有结构。',
-	},
-	{
-		title: 'SEO 与分享卡片',
-		desc: 'Layout 中提供基础 meta/OG 标签，后续可按域名补齐 site、Twitter card 等。',
-	},
-	{
-		title: '零依赖样式体系',
-		desc: '使用原生 CSS + 变量体系，主题色/圆角/阴影统一管理，便于做品牌定制与暗色风格。',
-	},
+const {
+  title = "全方位金融交易产品",
+  subtitle = "通过杜高斯贝银行，交易全球主要金融市场的多元化产品",
+} = Astro.props;
+
+const features = [
+  {
+    icon: "💱",
+    title: "外汇交易",
+    description: "超过50种货币对，包括主要、次要和 exotic 货币对。杠杆率高达1:200，点差从0.1点起。",
+    link: "https://www.dukascopy.com/swiss/chinese/forex/trading/",
+  },
+  {
+    icon: "📈",
+    title: "差价合约 (CFD)",
+    description: "交易全球股指、股票、大宗商品和债券CFD。杠杆限制灵活，满足不同交易策略需求。",
+    link: "https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/",
+  },
+  {
+    icon: "₿",
+    title: "加密货币",
+    description: "24/7杠杆加密货币交易，支持比特币、以太坊等主流数字货币。改进的价差和流动性。",
+    link: "https://www.dukascopy.com/swiss/chinese/crypto/range-of-markets/",
+  },
+  {
+    icon: "🥇",
+    title: "贵金属 & 商品",
+    description: "黄金、白银等贵金属现货交易，以及原油等大宗商品。瑞士银行的安全保障。",
+    link: "https://www.dukascopy.com/swiss/chinese/forex/trading/#metals",
+  },
+  {
+    icon: "🏛️",
+    title: "多币种银行账户",
+    description: "具有IBAN的24种货币的经常账户，附带实体卡和虚拟卡，支持全球资金管理。",
+    link: "https://www.dukascopy.bank/swiss/open-mca-account/?lang=zh",
+  },
+  {
+    icon: "🤖",
+    title: "自动交易(JForex)",
+    description: "在30分钟内创建你自己的交易策略。强大的JForex API支持算法交易和策略回测。",
+    link: "https://www.dukascopy.com/swiss/chinese/forex/jforex/",
+  },
 ];
 ---
 
-<div class="grid cols-3">
-	{features.map((f) => (
-		<div class="card feature">
-			<div class="cap">{f.title}</div>
-			<p class="muted">{f.desc}</p>
-		</div>
-	))}
-</div>
+<section id="trading" class="section">
+  <div class="container">
+    <h2 class="section-title">{title}</h2>
+    <p class="section-subtitle">{subtitle}</p>
+    <div class="grid grid-3">
+      {features.map((feature) => (
+        <a href={feature.link} class="card feature-card" target="_blank">
+          <span class="feature-icon">{feature.icon}</span>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-desc">{feature.description}</p>
+          <span class="feature-link">了解更多 →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
 
 <style>
-	.feature {
-		padding: 18px 18px 16px;
-		border-radius: 18px;
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
-		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
-	}
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-	.cap {
-		font-weight: 700;
-		letter-spacing: -0.01em;
-	}
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
 
-	p {
-		margin: 10px 0 0;
-		line-height: 1.75;
-		font-size: 14px;
-	}
+  .feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--gray-900);
+  }
+
+  .feature-desc {
+    font-size: 0.9375rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .feature-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--swiss-red);
+    margin-top: 16px;
+    transition: gap 0.2s ease;
+  }
+
+  .feature-card:hover .feature-link {
+    text-decoration: underline;
+  }
 </style>
-
