@@ -49,6 +49,11 @@ const cls = light ? 'logo logo-light' : 'logo';
 		width: var(--logo-icon);
 		height: auto;
 		flex-shrink: 0;
+		transition: transform 0.2s ease;
+	}
+
+	.logo:hover .logo-icon {
+		transform: scale(1.05);
 	}
 
 	.logo-text {
